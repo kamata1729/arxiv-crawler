@@ -8,7 +8,7 @@ def lambda_handler(event, context):
     token = get_token()
     new_papers = get_new_arxiv_papers()
     for paper in new_papers:
-        post_paper_to_slack(paper, token, translate=False)
+        post_paper_to_slack(paper, token, translate=True)
 
 
 def get_token():
@@ -23,7 +23,7 @@ def get_token():
         return token
 
 
-def get_new_arxiv_papers(search_query="cs.CV", max_results=20):
+def get_new_arxiv_papers(search_query="cs.CV", max_results=30):
     arxiv_res = arxiv.query(search_query=search_query,
                             max_results=max_results, sort_by="submittedDate")
 
@@ -86,4 +86,5 @@ def post_paper_to_slack(paper, token, channel_id='CHFGJ2PJ6', translate=True):
     }
     requests.post(post_message_url, data=post_json)
 
-
+if __name__ == '__main__':
+    lambda_handler(None, None)
