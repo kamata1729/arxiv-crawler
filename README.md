@@ -36,14 +36,14 @@ This API costs some money, so I recommend you to register **free trial**
 ## 3. Upload scripts to AWS Lambda
 
 ### 3.1 Make zip file
-run below to create `arxiv_crawling.zip`
+run below to create `arxiv_crawler.zip`
 
 ```
 bash make_zip.sh
 ```
 
 ### 3.2 Upload zip file to AWS Lambda
-Create your lambda function and upload `arxiv_crawling.zip`
+Create your lambda function and upload `arxiv_crawler.zip`
 
 ### 3.3 set enviroment params
 Like bwlow image, set parameters.  
