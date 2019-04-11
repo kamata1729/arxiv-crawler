@@ -3,7 +3,7 @@
 Arxiv crawling slack bot runnnig on AWS Lambda
 
 # What this slack bot does
-1. Get new arxiv cs.CV papers  
+1. Get new arxiv cs.CV papers ,publiched in the last 3 hours  
 (If you want to change this category, please change `search_query` argument of `arxiv_crawl.get_new_arxiv_papers`)
 2. Translate its abstract into Japanese
 3. Post message to slack workspace like below: 
@@ -24,13 +24,14 @@ Your bot needs `chat:write:bot` permission.
 
 ### 1.3 Install slack bot to your workspace
 install bot to your workspace.  
-after installing, do not forget to memo the access tokens in below image.  
+after installing, do not forget to memo the **access tokens** in below image.  
 ![](https://i.imgur.com/xLtCz4A.png)
 
 ## 2. Setup Google Translation API
 Go to https://cloud.google.com/ and enable `Google Translation API`  
-I recommend you to register free trial
-Then, you can get API key 
+After that, you have to get **API key**.  
+This API costs some money, so I recommend you to register **free trial**  
+
 
 ## 3. Upload scripts to AWS Lambda
 
