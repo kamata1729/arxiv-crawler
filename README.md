@@ -39,3 +39,10 @@ Create your lambda function and upload `arxiv_crawling.zip`
 Like bwlow image, set parameters.  
 `CHANNEL_ID` is slack channel id which the bot will post messages
 ![](https://i.imgur.com/tXU3HjK.png)
+
+### 3.4 Set CloudWatch Events trigger
+Add `CloudWatch Events` trigger from the left-side list
+![](https://i.imgur.com/nOLeJYz.png)
+
+Define trigger role of the `CloudWatch Events` like below:  
+![](https://i.imgur.com/p3mYVnw.png)
