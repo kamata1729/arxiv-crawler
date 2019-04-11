@@ -47,8 +47,8 @@ Create your lambda function and upload `arxiv_crawler.zip`
 The function handler should be specified as `arxiv_crawl.lambda_handler`
 
 ### 3.3 set enviroment params
-Like bwlow image, set parameters.  
-`CHANNEL_ID` is slack channel id which the bot will post messages
+Like below image, set parameters.  
+`CHANNEL_ID` is the id of the slack channel which this bot will post messages
 ![](https://i.imgur.com/tXU3HjK.png)
 
 ### 3.4 Set CloudWatch Events trigger
