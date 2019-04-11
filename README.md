@@ -43,7 +43,7 @@ bash make_zip.sh
 ```
 
 ### 3.2 Upload zip file to AWS Lambda
-Create your lambda function and upload `arxiv_crawler.zip`
+Create your lambda function and upload `arxiv_crawler.zip`  
 The function handler should be specified as `arxiv_crawl.lambda_handler`
 
 ### 3.3 set enviroment params
