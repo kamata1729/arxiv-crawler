@@ -1,6 +1,13 @@
 # arxiv-crawler
 
-arxiv crawling slack bot runnnig on AWS Lambda
+Arxiv crawling slack bot runnnig on AWS Lambda
+
+# What this slack bot does
+1. Get new arxiv cs.CV papers
+2. Translate its abstract into Japanese
+3. Post to slack workspace like below: 
+![](https://i.imgur.com/LhkcYRX.png)
+
 
 # Usage
 ## 1. Create slack bot
