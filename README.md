@@ -3,7 +3,8 @@
 Arxiv crawling slack bot runnnig on AWS Lambda
 
 # What this slack bot does
-1. Get new arxiv cs.CV papers
+1. Get new arxiv cs.CV papers  
+(If you want to change the category, please change `search_query` argument of `arxiv_crawl.get_new_arxiv_papers`)
 2. Translate its abstract into Japanese
 3. Post to slack workspace like below: 
 ![](https://i.imgur.com/LhkcYRX.png)
