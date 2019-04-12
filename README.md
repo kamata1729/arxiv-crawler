@@ -3,7 +3,7 @@
 Arxiv crawling slack bot runnnig on AWS Lambda
 
 # What this slack bot does
-1. Get new arxiv cs.CV papers ,publiched in the last 3 hours  
+1. Get new arxiv cs.CV papers publiched in the last day 
 (If you want to change this category, please change `search_query` argument of `arxiv_crawl.get_new_arxiv_papers`)
 2. Translate its abstract into Japanese
 3. Post message to slack workspace like below: 
@@ -47,8 +47,8 @@ Create your lambda function and upload `arxiv_crawler.zip`
 The function handler should be specified as `arxiv_crawl.lambda_handler`
 
 ### 3.3 set enviroment params
-Like bwlow image, set parameters.  
-`CHANNEL_ID` is slack channel id which the bot will post messages
+Like below image, set parameters.  
+`CHANNEL_ID` is the id of the slack channel which this bot will post messages
 ![](https://i.imgur.com/tXU3HjK.png)
 
 ### 3.4 Set CloudWatch Events trigger
@@ -56,4 +56,5 @@ Add `CloudWatch Events` trigger from the left-side list
 ![](https://i.imgur.com/nOLeJYz.png)
 
 Define trigger role of the `CloudWatch Events` like below:  
-![](https://i.imgur.com/p3mYVnw.png)
+Under `cron(0 6 * * ? *)`, bot will post message once a day at 15:00 PM (JST) 
+![](https://i.imgur.com/sn7hdvL.png)
