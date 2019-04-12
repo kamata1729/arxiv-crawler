@@ -28,7 +28,7 @@ def get_token():
         return token
 
 
-def get_new_arxiv_papers(search_query="cs.CV", max_results=20):
+def get_new_arxiv_papers(search_query="cs.CV", max_results=50):
     arxiv_res = arxiv.query(search_query=search_query,
                             max_results=max_results, sort_by="submittedDate")
 
