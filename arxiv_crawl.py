@@ -28,19 +28,19 @@ def get_token():
         return token
 
 
-def get_new_arxiv_papers(search_query="cs.CV", max_results=20, hours_rate=3):
+def get_new_arxiv_papers(search_query="cs.CV", max_results=20):
     arxiv_res = arxiv.query(search_query=search_query,
                             max_results=max_results, sort_by="submittedDate")
 
     utc = datetime.utcfromtimestamp(time.time())
     news_paper_list = []
-    for res in arxiv_res:
+    for i, res in enumerate(arxiv_res):
         updated_time = datetime.strptime(res['updated'], '%Y-%m-%dT%H:%M:%SZ')
-        delta = utc - updated_time
-        delta_hours = delta.days * 24 + delta.seconds // 3600
-        if delta_hours < hours_rate:
+        if i == 0:
+            print("utc: ", utc)
+            print("last updated paper: ", updated_time)
+        if utc.day - updated_time.day == 1:
             news_paper_list.append(res)
-
     return news_paper_list
 
 
