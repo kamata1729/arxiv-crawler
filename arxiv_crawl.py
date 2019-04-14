@@ -34,13 +34,21 @@ def get_new_arxiv_papers(search_query="cs.CV", max_results=50):
 
     utc = datetime.utcfromtimestamp(time.time())
     news_paper_list = []
+    last_updated_time = None
     for i, res in enumerate(arxiv_res):
         updated_time = datetime.strptime(res['updated'], '%Y-%m-%dT%H:%M:%SZ')
         if i == 0:
             print("utc: ", utc)
             print("last updated paper: ", updated_time)
+            last_updated_time = updated_time
         if utc.day - updated_time.day == 1:
             news_paper_list.append(res)
+
+    if len(news_paper_list) == 0:
+        post_message_to_slack(
+            'There is no papers submitted in the last day', get_token())
+        post_message_to_slack('last submitted date: {}'.format(
+            last_updated_time), get_token())
     return news_paper_list
 
 
@@ -87,6 +95,18 @@ def post_paper_to_slack(paper, token, translate=True):
     }
     requests.post(post_message_url, data=post_json)
     print(paper['title'].replace('\n', ''))
+
+
+def post_message_to_slack(text, token):
+    post_message_url = 'https://slack.com/api/chat.postMessage'
+    post_json = {
+        'token': token['SLACK_OATH_ACCESS_TOKEN'],
+        'text': text,
+        'channel': token['CHANNEL_ID'],
+        'username': 'arXiv-crawling',
+        'icon_url': 'https://i.imgur.com/ldRH2jt.png',
+    }
+    requests.post(post_message_url, data=post_json)
 
 
 if __name__ == '__main__':
