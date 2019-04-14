@@ -2,6 +2,8 @@
 
 Arxiv crawling slack bot runnnig on AWS Lambda
 
+日本語のREADME -> https://qiita.com/kamata1729/items/eb7b8a30749138a66788
+
 # What this slack bot does
 1. Get new arxiv cs.CV papers publiched in the last day 
 (If you want to change this category, please change `search_query` argument of `arxiv_crawl.get_new_arxiv_papers`)
