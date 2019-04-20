@@ -41,8 +41,12 @@ def get_new_arxiv_papers(search_query="cs.CV", max_results=50):
             print("utc: ", utc)
             print("last updated paper: ", updated_time)
             last_updated_time = updated_time
-        if utc.day - updated_time.day == 1:
-            news_paper_list.append(res)
+        if utc.weekday() == 0:  # Monday
+            if utc.day - updated_time.day == 3:
+                news_paper_list.append(res)
+        else:
+            if utc.day - updated_time.day == 1:
+                news_paper_list.append(res)
 
     if len(news_paper_list) == 0:
         post_message_to_slack(
